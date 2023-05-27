@@ -1,0 +1,38 @@
+<!-- templates/index.html -->
+
+{% extends "_base.html" %}
+
+
+
+{% block navbar %}
+
+    {% include 'home/navbar.html' %}
+  
+{% endblock navbar %}
+
+{% block herosection %}
+
+{% include 'home/herosection.html' %}
+
+{% endblock herosection %}
+
+{% block ArtWork  %}
+{% include 'home/ArtWork.html' %}
+{% endblock ArtWork %}
+
+{% block jobs %}
+{% include 'home/jobs.html' %}
+{% endblock jobs %}
+
+{% block subscribe %}
+{% include 'home/subcribe.html' %} 
+{% endblock subscribe %}
+
+{% block footer %}
+{% include 'home/footer.html' %}
+{% endblock footer %}
+
+{% block category %}
+{% include 'home/category.html' %}
+{% endblock category %}
+

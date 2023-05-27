@@ -1,0 +1,146 @@
+
+{% load compress %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getajob</title>
+    <link rel="stylesheet" href="{% static 'src/style.css' %}">
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    {% include 'signup/header.html' %}
+
+    <section class="h-full w-full mx-auto max-w-screen-xl flex justify-center flex-wrap">
+        <div class="container  bg-white mt-[20px]   flex justify-between  ">
+         
+            <div class="aside w-[40%] sticky top-0  h-screen">
+
+                <div class="m-auto">
+                    <img class="logo w-1/2 h-1/2  mx-auto" src="{% static 'logo/logoBlack.png' %}" alt="">
+                    <img class="illustration w-[80%] h-[90%] mx-auto" src="{% static 'illustration/signup.jpg' %}" alt="">
+                  </div> 
+
+            </div>
+
+            {% comment %} form {% endcomment %}
+            <div class="Register mt-[20px] pb-20">
+                <h2 class="text-[20px] font-semibold py-[20px]">Find a job & grow your career</h2>
+
+                <form action="">
+                    {% csrf_token %}
+
+                    {% comment %} fullname {% endcomment %}
+                        <div class="mb-3">
+                            <label for="fullname" class="block mb-2 text-sm font-medium text-black">Full name</label>
+                            <input type="fullname" id="fullname" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5  dark:placeholder-gray-400" placeholder="What is your name?" required>
+                        </div>
+                    {% comment %} emailid {% endcomment %}
+                        <div class="pb-3">
+                            <label for="email" class="block mb-2 text-sm font-medium text-black">Email ID</label>
+                            <input type="email" id="email" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 " placeholder="Tell us your EMAILID" required>
+                        </div>
+                        <h2 class=" text-xs text-slate-300">We'll send you relevant jobs in your mail</h2>
+                    
+                    {% comment %} password {% endcomment %}
+                        <div class="py-3">
+                            <label for="password" class="block mb-2 text-sm font-medium text-black" >Your password</label>
+                            <input type="password" id="password" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5  dark:placeholder-gray-400"  placeholder="Create a Password for your Account" required>
+                        </div>
+                        <h2 class=" text-xs text-slate-300">Minimum 6 characters required</h2>
+
+                    {% comment %} phoneno {% endcomment %}
+                        <div class="py-3" >
+                            
+                            <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone number</label>
+                            <div class="phoneno flex justify-center items-center border border-gray-300 bg-white rounded">
+                                <div class="india border-r-2 border-black px-3">+91</div>
+                                <input type="tel" id="phone" class="bg-white text-gray-900 text-sm n  rounded w-full p-2.5 "  required>
+
+                            </div>
+                        
+                        </div>
+                        <h2 class=" text-xs text-slate-300">Recruiters will call you on this number</h2>
+                    {% comment %} workstatus {% endcomment %}
+
+                        <div class="py-3" >
+                            
+                            <label for="workstatus" class="block mb-2 text-sm font-medium text-black">Work Status</label>
+                        
+                            <div class="flex items-center pl-4 border bg-white rounded justify-between gap-1 ">
+                                <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100">
+                                <label for="bordered-radio-1" class="w-full py-4 ml-2 text-sm font-medium text-black dark:text-gray-300"><span class="text-black">I'm experienced<span>
+                                    <h2 class=" text-sm text-slate-400"> I have work experience (excluding internships)</h2></label>
+
+                                <div class="icon">
+                                    <img class=" w-[70px] h-[60px] pr-1" src="{% static 'catgeoryIcon/buisiness.png' %}" alt="">
+                                </div>
+                            </div>
+                            <div class="flex items-center pl-4 border bg-white rounded justify-between ">
+                                <input id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 ">
+                                <label for="bordered-radio-2" class="w-full py-4 ml-2 text-sm font-medium text-black dark:text-gray-300"><span class="text-black">I'm a fresher<span>
+                                    <h2 class=" text-sm text-slate-400"> I am a student/ Haven't worked after graduation</h2></label>
+
+                                <div class="icon">
+                                    <img class=" w-[70px] h-[60px] pr-1" src="{% static 'catgeoryIcon/customer.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                    {% comment %} city {% endcomment %}
+
+                        <div class="py-3">
+                            <label for="city" class="block mb-2 text-sm font-medium text-black">Current city</label>
+                            <input type="text" id="city" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg  block w-full p-2.5 " placeholder=" Mention the city you live in" required>
+                        </div>
+
+                    
+
+                    {% comment %} upload resume {% endcomment %}
+                        <label class="block py-3 text-sm font-medium text-black" for="file_input">Resume</label>
+                    
+                    
+                        <label class="block">
+                        <span class="sr-only">Choose profile photo</span>
+                        <input  for="Upload Resume" type="file" class="block w-full text-sm text-gray-500
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-md file:border-0
+                            file:text-sm bg-white rounded-[5px]
+                            file:bg-orange-400 file:text-white
+                        "/>
+                        </label>
+
+                
+                    {% comment %} term&condition {% endcomment %}
+
+                        <div class="flex items-center pt-6 pb-5">
+                            <input id="link-checkbox" type="checkbox" value="" class="w-4 h-4  bg-white rounded">
+                            <label for="link-checkbox" class="ml-2 text-sm font-medium text-black">I agree with the <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</a>.</label>
+                        </div>
+                
+
+                    <h2 class=" text-sm text-slate-500">By clicking Register, you agree to the Terms and Conditions & Privacy Policy of Naukri.com</h2>
+
+                
+                    <button type="button" class=" mt-[30px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+                </form>
+            </div>
+
+        </div>
+      </section>
+  
+  
+{% include 'home/footer.html' %}
+</body>
+
+</html>
