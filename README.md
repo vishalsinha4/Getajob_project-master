@@ -8,3 +8,5 @@ cd getAjob
 pip install -U django-jazzmin
 python -m pip install django-compressor
 python manage.py runserver   
+pip install Pillow (9.5.0)
+pip install django-allauth
