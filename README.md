@@ -10,3 +10,4 @@ python -m pip install django-compressor
 python manage.py runserver   
 pip install Pillow (9.5.0)
 pip install django-allauth
+npx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --watch
